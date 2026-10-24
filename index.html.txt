@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>متجر ملوك الدليم | شهادات توقيع تطبيقات iOS و IPA</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts (Tajawal & Cairo) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+darkBg: '#080B11',
+cardBg: '#0F172A',
+neonBlue: '#00F0FF',
+royalBlue: '#3B82F6',
+deepBlue: '#1D4ED8',
+},
+fontFamily: {
+cairo: ['Cairo', 'sans-serif'],
+tajawal: ['Tajawal', 'sans-serif'],
+},
+boxShadow: {
+glow: '0 0 25px -5px rgba(0, 240, 255, 0.4)',
+glowIntense: '0 0 35px 2px rgba(0, 240, 255, 0.6)',
+cardGlow: '0 8px 32px 0 rgba(0, 240, 255, 0.1)',
+}
+}
+}
+}
+</script>
+<style>
+body {
+font-family: 'Tajawal', sans-serif;
+background-color: #05070A;
+color: #F3F4F6;
+overflow-x: hidden;
+}
+/* Custom Glassmorphism Styles */
+.glass-card {
+background: rgba(15, 23, 42, 0.65);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border: 1px solid rgba(0, 240, 255, 0.15);
+}
+.glass-card-hover {
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card-hover:hover {
+border-color: rgba(0, 240, 255, 0.6);
+box-shadow: 0 0 30px rgba(0, 240, 255, 0.25);
+transform: translateY(-5px);
+}
+.glass-nav {
+background: rgba(8, 11, 17, 0.85);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+}
+/* Animated Grid Background */
+.bg-grid {
+background-size: 40px 40px;
+background-image:
+linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+}
+/* Gradient Text */
+.gradient-text {
+background: linear-gradient(135deg, #FFFFFF 20%, #00F0FF 80%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.gradient-text-blue {
+background: linear-gradient(135deg, #00F0FF 0%, #3B82F6 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+/* Floating animation */
+@keyframes float {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+}
+.animate-float {
+animation: float 4s ease-in-out infinite;
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+width: 8px;
+}
+::-webkit-scrollbar-track {
+background: #05070A;
+}
+::-webkit-scrollbar-thumb {
+background: #1E293B;
+border-radius: 4px;
+border: 1px solid rgba(0, 240, 255, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+background: #00F0FF;
+}
+</style>
+</head>
+<body class="bg-grid min-h-screen flex flex-col justify-between selection:bg-neonBlue selection:text-black">
+<!-- Glowing Background Orbs -->
+<div class="fixed top-0 right-1/4 w-96 h-96 bg-neonBlue/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse"></div>
+<div class="fixed bottom-1/3 left-10 w-80 h-80 bg-deepBlue/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Header Navigation -->
+<header class="sticky top-0 z-50 glass-nav">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Logo -->
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-neonBlue to-deepBlue p-[2px] shadow-glow">
+<div class="w-full h-full bg-darkBg rounded-[14px] flex items-center justify-center">
+<i class="fa-solid fa-crown text-neonBlue text-xl"></i>
+</div>
+</div>
+<div>
+<span class="text-2xl font-black font-cairo gradient-text tracking-wide">ملوك الدليم</span>
+<span class="block text-[10px] text-neonBlue/80 font-bold tracking-widest uppercase -mt-1">IPA Certificates Store</span>
+</div>
+</div>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8 space-x-reverse text-sm font-semibold">
+<a href="#hero" class="text-gray-300 hover:text-neonBlue transition-colors duration-200">الرئيسية</a>
+<a href="#installers" class="text-gray-300 hover:text-neonBlue transition-colors duration-200">التطبيقات والأدوات</a>
+<a href="#pricing" class="text-gray-300 hover:text-neonBlue transition-colors duration-200">باقات الاشتراك</a>
+<a href="#features" class="text-gray-300 hover:text-neonBlue transition-colors duration-200">مميزاتنا</a>
+<a href="#contact" class="text-gray-300 hover:text-neonBlue transition-colors duration-200">التواصل والدعم</a>
+</nav>
+<!-- Social Action Header -->
+<div class="hidden sm:flex items-center gap-3">
+<a href="https://t.me/" target="_blank" class="glass-card hover:bg-neonBlue/10 border border-neonBlue/30 text-neonBlue px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 transition-all duration-300">
+<i class="fa-brands fa-telegram text-lg"></i>
+<span>قناة التليجرام</span>
+</a>
+</div>
+<!-- Mobile Menu Button -->
+<button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-neonBlue text-2xl focus:outline-none">
+<i class="fa-solid fa-bars"></i>
+</button>
+</div>
+</div>
+<!-- Mobile Menu Nav -->
+<div id="mobileMenu" class="hidden md:hidden glass-card border-t border-neonBlue/20 px-4 pt-2 pb-6 space-y-3">
+<a href="#hero" class="block py-2 text-gray-200 hover:text-neonBlue border-b border-gray-800">الرئيسية</a>
+<a href="#installers" class="block py-2 text-gray-200 hover:text-neonBlue border-b border-gray-800">التطبيقات والأدوات</a>
+<a href="#pricing" class="block py-2 text-gray-200 hover:text-neonBlue border-b border-gray-800">باقات الاشتراك</a>
+<a href="#features" class="block py-2 text-gray-200 hover:text-neonBlue border-b border-gray-800">مميزاتنا</a>
+<a href="#contact" class="block py-2 text-gray-200 hover:text-neonBlue">التواصل والدعم</a>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-32 px-4 overflow-hidden">
+<div class="max-w-5xl mx-auto text-center relative z-10">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-neonBlue/30 text-neonBlue text-xs sm:text-sm font-bold mb-8 animate-float shadow-glow">
+<i class="fa-solid fa-shield-halved text-neonBlue"></i>
+<span>شهادات توقيع مطورين iOS ثقة 100% بدون إغلاق</span>
+</div>
+<h1 class="text-4xl sm:text-6xl lg:text-7xl font-black font-cairo leading-tight mb-6">
+المتجر الأول لتوقيع تطبيقات <br class="hidden sm:inline" />
+<span class="gradient-text-blue">الآيفون والآيباد (IPA)</span>
+</h1>
+<p class="text-gray-400 text-base sm:text-xl max-w-2xl mx-auto font-medium leading-relaxed mb-10">
+أهلاً بك في <strong class="text-white">متجر ملوك الدليم</strong>. نوفر لك أفضل شهادات المطورين وتطبيقات التوقيع المباشرة مثل ESign و Scarlet و K-Sign بأعلى استقرار وضمان حقيقي.
+</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+<a href="#pricing" class="w-full sm:w-auto bg-gradient-to-r from-neonBlue to-deepBlue text-black font-bold text-lg px-8 py-4 rounded-2xl shadow-glow hover:shadow-glowIntense hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
+<i class="fa-solid fa-bolt text-black"></i>
+<span>اشترك الآن واستلم شهادتك</span>
+</a>
+<a href="#installers" class="w-full sm:w-auto glass-card border border-neonBlue/40 hover:bg-neonBlue/10 text-white font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3">
+<i class="fa-solid fa-download text-neonBlue"></i>
+<span>تطبيقات التوقيع المباشر</span>
+</a>
+</div>
+<!-- Counter Badges -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto">
+<div class="glass-card p-4 rounded-2xl text-center">
+<span class="block text-2xl md:text-3xl font-black text-neonBlue font-cairo">+5000</span>
+<span class="text-xs text-gray-400">عميل راضٍ</span>
+</div>
+<div class="glass-card p-4 rounded-2xl text-center">
+<span class="block text-2xl md:text-3xl font-black text-neonBlue font-cairo">100%</span>
+<span class="text-xs text-gray-400">ضمان واستقرار</span>
+</div>
+<div class="glass-card p-4 rounded-2xl text-center">
+<span class="block text-2xl md:text-3xl font-black text-neonBlue font-cairo">24/7</span>
+<span class="text-xs text-gray-400">دعم فني متواصل</span>
+</div>
+<div class="glass-card p-4 rounded-2xl text-center">
+<span class="block text-2xl md:text-3xl font-black text-neonBlue font-cairo">فوري</span>
+<span class="text-xs text-gray-400">تفعيل الشهادة</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Installers & Certificates Section -->
+<section id="installers" class="py-16 px-4 relative max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl sm:text-5xl font-black font-cairo mb-4 gradient-text">تطبيقات وأدوات التوقيع</h2>
+<p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">حمل وأدِر أدوات توقيع ملفات IPA الشهيرة مباشرة على جهازك بسهولة</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- ESign Card -->
+<div class="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 bg-gradient-to-br from-neonBlue/20 to-transparent w-24 h-24 rounded-br-full -z-10"></div>
+<div>
+<!-- Custom ESign Logo Vector Graphic -->
+<div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-2xl p-1 shadow-glow group-hover:scale-110 transition-transform duration-300">
+<div class="w-full h-full bg-slate-950 rounded-xl flex items-center justify-center relative overflow-hidden">
+<svg class="w-12 h-12 text-neonBlue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<span class="absolute bottom-1 right-2 text-[10px] font-black text-cyan-300">ESign</span>
+</div>
+</div>
+<h3 class="text-2xl font-bold font-cairo text-center text-white mb-2">إيساين - ESign</h3>
+<span class="inline-block w-full text-center text-xs font-bold text-neonBlue bg-neonBlue/10 py-1 rounded-full mb-4">الأكثر طلباً واستقراراً</span>
+<p class="text-gray-300 text-sm leading-relaxed text-center mb-6">
+تطبيق ESign يعتبر الأداة الأفضل والأقوى لتوقيع ملفات IPA مباشرة من جهاز الآيفون بدون كمبيوتر. يتيح لك إدارة الشهادات والتطبيقات وتعديل BUNDLE ID بكل سهولة.
+</p>
+</div>
+<div class="space-y-3">
+<button onclick="openModal('إيساين (ESign)', 'تثبيت مباشر عبر شهادة متجر ملوك الدليم')" class="w-full bg-gradient-to-r from-neonBlue to-blue-600 text-black font-bold py-3 px-4 rounded-xl shadow-glow hover:opacity-95 transition-all text-sm flex items-center justify-center gap-2">
+<i class="fa-solid fa-circle-down"></i>
+<span>تثبيت ESign الآن</span>
+</button>
+<a href="https://t.me/" target="_blank" class="w-full glass-card hover:bg-slate-800 text-gray-300 font-semibold py-2.5 px-4 rounded-xl text-xs text-center block transition-colors">
+شرح الطريقة وتثبيت DNS
+</a>
+</div>
+</div>
+<!-- K-Sign Card -->
+<div class="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 bg-gradient-to-br from-indigo-500/20 to-transparent w-24 h-24 rounded-br-full -z-10"></div>
+<div>
+<!-- Custom KSign Logo Vector Graphic -->
+<div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-tr from-indigo-600 to-blue-400 rounded-2xl p-1 shadow-glow group-hover:scale-110 transition-transform duration-300">
+<div class="w-full h-full bg-slate-950 rounded-xl flex items-center justify-center relative">
+<span class="text-3xl font-black text-indigo-400 tracking-tighter">K</span>
+<i class="fa-solid fa-pen-nib text-neonBlue text-sm absolute bottom-2 right-2"></i>
+</div>
+</div>
+<h3 class="text-2xl font-bold font-cairo text-center text-white mb-2">كيساين - K-Sign</h3>
+<span class="inline-block w-full text-center text-xs font-bold text-indigo-400 bg-indigo-500/10 py-1 rounded-full mb-4">أداة خفيفة وسريعة</span>
+<p class="text-gray-300 text-sm leading-relaxed text-center mb-6">
+أداة K-Sign الممتازة وتتميز بمرونتها وسرعتها العالية في توقيع وتثبيت التطبيقات والألعاب المعدلة IPA بسرعة فائقة مع واجهة بسيطة وعصرية.
+</p>
+</div>
+<div class="space-y-3">
+<button onclick="openModal('كيساين (K-Sign)', 'تثبيت تطبيق K-Sign مع الشهادة الفعالة')" class="w-full bg-gradient-to-r from-indigo-500 to-neonBlue text-black font-bold py-3 px-4 rounded-xl shadow-glow hover:opacity-95 transition-all text-sm flex items-center justify-center gap-2">
+<i class="fa-solid fa-circle-down"></i>
+<span>تثبيت K-Sign الآن</span>
+</button>
+<a href="https://t.me/" target="_blank" class="w-full glass-card hover:bg-slate-800 text-gray-300 font-semibold py-2.5 px-4 rounded-xl text-xs text-center block transition-colors">
+طلب ملف الشهادة الخاص بالخدمة
+</a>
+</div>
+</div>
+<!-- Scarlet Card -->
+<div class="glass-card glass-card-hover rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 bg-gradient-to-br from-red-500/20 to-transparent w-24 h-24 rounded-br-full -z-10"></div>
+<div>
+<!-- Custom Scarlet Logo Vector Graphic -->
+<div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-tr from-rose-600 to-red-400 rounded-2xl p-1 shadow-glow group-hover:scale-110 transition-transform duration-300">
+<div class="w-full h-full bg-slate-950 rounded-xl flex items-center justify-center">
+<i class="fa-solid fa-fire-flame-curved text-3xl text-rose-500"></i>
+</div>
+</div>
+<h3 class="text-2xl font-bold font-cairo text-center text-white mb-2">سكارليت - Scarlet</h3>
+<span class="inline-block w-full text-center text-xs font-bold text-rose-400 bg-rose-500/10 py-1 rounded-full mb-4">متجر وتثبيت مباشر</span>
+<p class="text-gray-300 text-sm leading-relaxed text-center mb-6">
+تطبيق Scarlet المتكامل المخصص لـ iOS، يتيح لك تصفح واستيراد وتوقيع تطبيقات IPA الخارجية بكل أمان مع دعم إضافة مصادر ومستودعات ألعاب وتطبيقات.
+</p>
+</div>
+<div class="space-y-3">
+<button onclick="openModal('سكارليت (Scarlet)', 'تثبيت متجر Scarlet لتثبيت ملفات الـ IPA')" class="w-full bg-gradient-to-r from-rose-500 to-neonBlue text-black font-bold py-3 px-4 rounded-xl shadow-glow hover:opacity-95 transition-all text-sm flex items-center justify-center gap-2">
+<i class="fa-solid fa-circle-down"></i>
+<span>تثبيت Scarlet الآن</span>
+</button>
+<a href="https://t.me/" target="_blank" class="w-full glass-card hover:bg-slate-800 text-gray-300 font-semibold py-2.5 px-4 rounded-xl text-xs text-center block transition-colors">
+تعليمات التثبيت وبلاغات الصيانة
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Subscription / Pricing Section -->
+<section id="pricing" class="py-20 px-4 max-w-7xl mx-auto relative">
+<div class="text-center mb-16">
+<h2 class="text-3xl sm:text-5xl font-black font-cairo mb-4 gradient-text">باقات الاشتراكات والشهادات</h2>
+<p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">اختر الباقة المناسبة لاحتياجاتك واستمتع بشهادات مطورين رسمية بدون توقف</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+<!-- Standard Package -->
+<div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between border-gray-800">
+<div>
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-2xl font-bold font-cairo text-white">الباقة العادية</h3>
+<p class="text-xs text-gray-400 mt-1">شهادة مطورين خيار اقتصادي</p>
+</div>
+<span class="text-2xl font-black text-neonBlue font-cairo">10$ <span class="text-xs text-gray-400 font-normal">/ سنة</span></span>
+</div>
+<ul class="space-y-4 mb-8 text-sm text-gray-300">
+<li class="flex items-center gap-3">
+<i class="fa-solid fa-check-circle text-neonBlue text-lg"></i>
+<span>توقيع جميع تطبيقات الـ IPA بدون حد أقصى</span>
+</li>
+<li class="flex items-center gap-3">
+<i class="fa-solid fa-check-circle text-neonBlue text-lg"></i>
+<span>دعم تطبيقات ESign, Scarlet, K-Sign</span>
+</li>
+<li class="flex items-center gap-3">
+<i class="fa-solid fa-check-circle text-neonBlue text-lg"></i>
+<span>ضمان الشهادة لمدة 6 أشهر</span>
+</li>
+<li class="flex items-center gap-3 text-gray-500">
+<i class="fa-solid fa-circle-xmark text-lg"></i>
+<span>تفعيل خلال (24-72 ساعة)</span>
+</li>
+</ul>
+</div>
+<a href="https://t.me/" target="_blank" class="w-full glass-card hover:bg-neonBlue/20 text-neonBlue border border-neonBlue/40 font-bold py-3.5 rounded-2xl text-center transition-all">
+اشترك في الباقة العادية
+</a>
+</div>
+<!-- VIP Package -->
+<div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between border-neonBlue/50 bg-slate-900/80 relative shadow-glow">
+<div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-neonBlue to-deepBlue text-black text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider">
+الأكثر مبيعاً VIP
+</div>
+<div>
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-2xl font-bold font-cairo text-white flex items-center gap-2">
+<span>الباقة الفائقة VIP</span>
+<i class="fa-solid fa-crown text-amber-400 text-sm"></i>
+</h3>
+<p class="text-xs text-gray-400 mt-1">تفعيل فوري وضمان شامل</p>
+</div>
+<span class="text-2xl font-black text-neonBlue font-cairo">15$ <span class="text-xs text-gray-400 font-normal">/ سنة</span></span>
+</div>
+<ul class="space-y-4 mb-8 text-sm text-gray-300">
+<li class="flex items-center gap-3">
+<i class="fa-solid fa-check-circle text-neonBlue text-lg"></i>
+<span>توقيع غير محدود لجميع ملفات IPA</span>
+</li>
+<li class="flex items-center gap-3">
+<i class="fa-solid fa-check-circle text-neonBlue text-lg"></i>
+<span>تفعيل فوري وسريع للشهادة</span>
+</li>
+<li class="flex items-center gap-3">
+<i class="fa-solid fa-check-circle text-neonBlue text-lg"></i>
+<span>ضمان كامل لمدة سنة ضد الإغلاق والتوقف</span>
+</li>
+<li class="flex items-center gap-3">
+<i class="fa-solid fa-check-circle text-neonBlue text-lg"></i>
+<span>دعم فني خاص وحصري VIP عبر تلجرام</span>
+</li>
+<li class="flex items-center gap-3">
+<i class="fa-solid fa-check-circle text-neonBlue text-lg"></i>
+<span>تعويض فوري مباشر في حال حدوث أي مشكلة</span>
+</li>
+</ul>
+</div>
+<a href="https://t.me/" target="_blank" class="w-full bg-gradient-to-r from-neonBlue to-deepBlue hover:opacity-90 text-black font-bold py-3.5 rounded-2xl text-center transition-all shadow-glow">
+اشترك في باقة VIP بـ 15$ فقط
+</a>
+</div>
+</div>
+</section>
+<!-- Features & Guarantees Section -->
+<section id="features" class="py-16 px-4 max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl sm:text-5xl font-black font-cairo mb-4 gradient-text">لماذا متجر ملوك الدليم؟</h2>
+<p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">نضمن لك تجربة استخدام سلسة وآمنة لتوقيع تطبيقات الآيفون</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass-card p-6 rounded-2xl text-center">
+<div class="w-14 h-14 mx-auto mb-4 bg-neonBlue/10 text-neonBlue rounded-2xl flex items-center justify-center text-2xl">
+<i class="fa-solid fa-shield-check"></i>
+</div>
+<h4 class="text-lg font-bold text-white mb-2 font-cairo">ضمان استقرار الشهادة</h4>
+<p class="text-xs text-gray-400 leading-relaxed">شهادات مطورين رسمية ومعتمدة تضمن استمرار تطبيقاتك بدون توقف مفاجئ.</p>
+</div>
+<div class="glass-card p-6 rounded-2xl text-center">
+<div class="w-14 h-14 mx-auto mb-4 bg-neonBlue/10 text-neonBlue rounded-2xl flex items-center justify-center text-2xl">
+<i class="fa-solid fa-bolt"></i>
+</div>
+<h4 class="text-lg font-bold text-white mb-2 font-cairo">تفعيل وتسليم سريع</h4>
+<p class="text-xs text-gray-400 leading-relaxed">سرعة فائقة في تسليم الشهادات وروابط التثبيت لمساعدتك فوراً.</p>
+</div>
+<div class="glass-card p-6 rounded-2xl text-center">
+<div class="w-14 h-14 mx-auto mb-4 bg-neonBlue/10 text-neonBlue rounded-2xl flex items-center justify-center text-2xl">
+<i class="fa-solid fa-headset"></i>
+</div>
+<h4 class="text-lg font-bold text-white mb-2 font-cairo">دعم فني متواصل</h4>
+<p class="text-xs text-gray-400 leading-relaxed">فريق دعم متواجد على مدار الساعة لمساعدتك في التثبيت وإجابة كافة استفساراتك.</p>
+</div>
+<div class="glass-card p-6 rounded-2xl text-center">
+<div class="w-14 h-14 mx-auto mb-4 bg-neonBlue/10 text-neonBlue rounded-2xl flex items-center justify-center text-2xl">
+<i class="fa-solid fa-rotate"></i>
+</div>
+<h4 class="text-lg font-bold text-white mb-2 font-cairo">تحديثات مستمرة</h4>
+<p class="text-xs text-gray-400 leading-relaxed">نوفر باستمرار أحدث نسخ ESign وScarlet وKSign لضمان التوافق مع أحدث إصدارات iOS.</p>
+</div>
+</div>
+</section>
+<!-- Social Media & Support Links Section -->
+<section id="contact" class="py-16 px-4 max-w-5xl mx-auto">
+<div class="glass-card rounded-3xl p-8 md:p-12 border-neonBlue/30 text-center relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-neonBlue/10 rounded-full blur-2xl"></div>
+<h2 class="text-3xl font-black font-cairo text-white mb-4">قنواتنا وتواصلنا الرسمي</h2>
+<p class="text-gray-300 text-sm sm:text-base max-w-xl mx-auto mb-8">
+تابعنا على منصات التواصل الاجتماعي للحصول على آخر التحديثات والشهادات المجانية والشروحات
+</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<!-- Telegram -->
+<a href="https://t.me/" target="_blank" class="glass-card hover:bg-sky-500/10 border-sky-500/30 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all group">
+<i class="fa-brands fa-telegram text-4xl text-sky-400 group-hover:scale-110 transition-transform"></i>
+<span class="font-bold text-white text-base">قناة التليجرام</span>
+<span class="text-xs text-sky-300">للتواصل والدعم والشروحات</span>
+</a>
+<!-- YouTube -->
+<a href="https://youtube.com/" target="_blank" class="glass-card hover:bg-red-500/10 border-red-500/30 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all group">
+<i class="fa-brands fa-youtube text-4xl text-red-500 group-hover:scale-110 transition-transform"></i>
+<span class="font-bold text-white text-base">قناة اليوتيوب</span>
+<span class="text-xs text-red-400">شروحات فيديو وطرق التوقيع</span>
+</a>
+<!-- Instagram -->
+<a href="https://instagram.com/" target="_blank" class="glass-card hover:bg-pink-500/10 border-pink-500/30 p-5 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all group">
+<i class="fa-brands fa-instagram text-4xl text-pink-500 group-hover:scale-110 transition-transform"></i>
+<span class="font-bold text-white text-base">حساب الانستغرام</span>
+<span class="text-xs text-pink-400">أخبار المتجر والشهادات</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Telegram Quick Action Button -->
+<a href="https://t.me/" target="_blank" title="تواصل معنا مباشر عبر تلجرام" class="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-neonBlue to-deepBlue text-black p-4 rounded-full shadow-glow hover:shadow-glowIntense hover:scale-110 transition-all duration-300 flex items-center justify-center">
+<i class="fa-brands fa-telegram text-2xl"></i>
+</a>
+<!-- Modal for Action / Installation -->
+<div id="actionModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+<div class="glass-card border-neonBlue/40 max-w-md w-full rounded-3xl p-6 relative animate-float">
+<button onclick="closeModal()" class="absolute top-4 left-4 text-gray-400 hover:text-white text-xl">
+<i class="fa-solid fa-xmark"></i>
+</button>
+<div class="text-center mb-6">
+<div class="w-16 h-16 bg-neonBlue/10 rounded-2xl text-neonBlue flex items-center justify-center text-3xl mx-auto mb-3">
+<i class="fa-solid fa-download"></i>
+</div>
+<h3 id="modalTitle" class="text-2xl font-bold font-cairo text-white">تثبيت التطبيق</h3>
+<p id="modalDesc" class="text-xs text-gray-400 mt-1">يرجى متابعة الخطوات التالية لإتمام العملية</p>
+</div>
+<div class="space-y-4">
+<div class="glass-card p-4 rounded-xl text-xs text-gray-300 leading-relaxed border-gray-800">
+<p class="font-bold text-neonBlue mb-1">تنبيه هام:</p>
+يتطلب التثبيت المباشر وجود شهادة توقيع فعالة على جهازك. يمكنك التواصل معنا مباشرة للحصول على كود التفعيل ورابط التثبيت المباشر.
+</div>
+<a href="https://t.me/" target="_blank" class="w-full bg-gradient-to-r from-neonBlue to-deepBlue text-black font-bold py-3.5 rounded-xl block text-center shadow-glow text-sm">
+<i class="fa-brands fa-telegram ml-1"></i> التواصل عبر التليجرام للتثبيت
+</a>
+<button onclick="closeModal()" class="w-full glass-card hover:bg-slate-800 text-gray-300 font-semibold py-3 rounded-xl text-xs">
+إلغاء
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Section -->
+<footer class="glass-nav mt-20 border-t border-neonBlue/10 py-8">
+<div class="max-w-7xl mx-auto px-4 text-center">
+<div class="flex items-center justify-center gap-2 mb-3">
+<i class="fa-solid fa-crown text-neonBlue"></i>
+<span class="text-lg font-black font-cairo gradient-text">متجر ملوك الدليم</span>
+</div>
+<p class="text-xs text-gray-400 mb-4">المتجر المتخصص والأول لتوفير شهادات وتطبيقات IPA للآيفون بأعلى جودة وضمان</p>
+<p class="text-xs text-gray-500">
+جميع الحقوق محفوظة © <span id="year"></span> متجر ملوك الدليم
+</p>
+</div>
+</footer>
+<!-- Interactive Scripts -->
+<script>
+// Set dynamic year in footer
+document.getElementById('year').textContent = new Date().getFullYear();
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+mobileMenuBtn.addEventListener('click', () => {
+mobileMenu.classList.toggle('hidden');
+});
+// Modal Functionality
+function openModal(title, description) {
+document.getElementById('modalTitle').textContent = title;
+document.getElementById('modalDesc').textContent = description;
+document.getElementById('actionModal').classList.remove('hidden');
+}
+function closeModal() {
+document.getElementById('actionModal').classList.add('hidden');
+}
+// Close modal on outer click
+window.addEventListener('click', (e) => {
+const modal = document.getElementById('actionModal');
+if (e.target === modal) {
+closeModal();
+}
+});
+</script>
+</body>
+</html>
